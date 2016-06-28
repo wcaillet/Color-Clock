@@ -3,27 +3,35 @@
 var startClock = function() {
     var today = new Date()
     var h = today.getHours()
+    
     // Converts current hours into hex value, base 16
     var hours = h.toString(16)
     var m = today.getMinutes()
+
     // Converts current minutes into hex value, base 16
     var minutes = m.toString(16)
     var s = today.getSeconds()
+
     // Converts current seconds into hex value, base 16
     var seconds = s.toString(16)
+
     // Runs helper function checkTime to add 0 to hours if needed
     m = checkTime(m)
     s = checkTime(s)
+
     // Creates time string from current hours, minutes and seconds
     document.querySelector("#clock").innerHTML = h + ":" + m + ":" + s
     setTimeout(startClock, 500)
 
     //Select overlay
     var overlayEl = document.querySelector("#overlay")
+
     // Stores current converted values as hexcode string
     var backgroundHex = '#' + hours + minutes + seconds
+
     // Inserts the hex value as overlay's background color
 	overlayEl.style.background = backgroundHex
+
 	// inserts the hex string into the span
 	var hexContainer = document.querySelector("#hex-value")
 	hexContainer.innerHTML = backgroundHex
@@ -53,4 +61,3 @@ var timer = setInterval(function() {
 }, 350)
 
 
-  
